@@ -13,6 +13,7 @@ namespace NInject.Data
         }
 
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<useraccount> userAccounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

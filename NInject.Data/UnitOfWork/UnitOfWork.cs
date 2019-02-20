@@ -15,11 +15,14 @@ namespace NInject.Data.UnitOfWork
 
         private NInjectContext _context = null;
         private GenericRepository<Product> _productRepository;
+        private GenericRepository<useraccount> _userRepository;
         #endregion
 
         public UnitOfWork()
         {
-            _context = new NInjectContext();
+            if (_context == null)
+                _context = new NInjectContext();
+           
         }
 
         #region Public Repository Creation properties...
@@ -37,7 +40,15 @@ namespace NInject.Data.UnitOfWork
             }
         }
 
-       
+       public GenericRepository<useraccount>UserRepository
+        {
+            get
+            {
+                if (_userRepository == null)
+                    _userRepository = new GenericRepository<useraccount>(_context);
+                return _userRepository;
+            }
+        }
 
         
         #endregion

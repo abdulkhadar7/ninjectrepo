@@ -14,6 +14,13 @@ namespace NInject.API
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // school route
+            config.Routes.MapHttpRoute(
+                name: "MyDefault",
+                routeTemplate: "api/Home/{id}",
+                defaults: new { controller = "Home",action="Index", id = RouteParameter.Optional }                 
+            );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

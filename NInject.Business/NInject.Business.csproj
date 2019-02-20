@@ -43,6 +43,13 @@
     <Compile Include="Class1.cs" />
     <Compile Include="ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="useraccountModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NInject.Data\NInject.Data.csproj">
+      <Project>{0FF18DD6-A89A-4229-A7C7-9A73300120E4}</Project>
+      <Name>NInject.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
