@@ -15,7 +15,7 @@ namespace NInject.Data.UnitOfWork
 
         private NInjectContext _context = null;
         private GenericRepository<Product> _productRepository;
-        private GenericRepository<useraccount> _userRepository;
+        private GenericRepository<User> _userRepository;
         #endregion
 
         public UnitOfWork()
@@ -40,17 +40,16 @@ namespace NInject.Data.UnitOfWork
             }
         }
 
-       public GenericRepository<useraccount>UserRepository
+        public GenericRepository<User> UserRepository
         {
             get
             {
                 if (_userRepository == null)
-                    _userRepository = new GenericRepository<useraccount>(_context);
+                    _userRepository = new GenericRepository<User>(_context);
                 return _userRepository;
             }
         }
-
-        
+             
         #endregion
 
         #region Public member methods...
