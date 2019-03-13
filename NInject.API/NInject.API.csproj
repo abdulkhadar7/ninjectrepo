@@ -156,8 +156,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\AuthorizationRequiredAttribute.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthenticateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Filters\ApiAuthenticationFilter.cs" />

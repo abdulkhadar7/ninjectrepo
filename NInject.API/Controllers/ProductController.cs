@@ -1,4 +1,5 @@
-﻿using NInject.API.Filters;
+﻿using NInject.API.ActionFilters;
+using NInject.API.Filters;
 using NInject.Services;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Web.Http;
 
 namespace NInject.API.Controllers
 {
-    [ApiAuthenticationFilter]
+    [AuthorizationRequired]
     [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {

@@ -16,6 +16,7 @@ namespace NInject.Data.UnitOfWork
         private NInjectContext _context = null;
         private GenericRepository<Product> _productRepository;
         private GenericRepository<User> _userRepository;
+        private GenericRepository<Token> _tokenRepository;
         #endregion
 
         public UnitOfWork()
@@ -49,7 +50,16 @@ namespace NInject.Data.UnitOfWork
                 return _userRepository;
             }
         }
-             
+         
+        public GenericRepository<Token> TokenRepository
+        {
+            get
+            {
+               if (_tokenRepository == null)
+                    _tokenRepository = new GenericRepository<Token>(_context);
+                return _tokenRepository;
+            }
+        }    
         #endregion
 
         #region Public member methods...
