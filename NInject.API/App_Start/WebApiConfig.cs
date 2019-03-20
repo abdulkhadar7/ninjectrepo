@@ -14,6 +14,7 @@ namespace NInject.API
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.MessageHandlers.Add(new TokenValidationHandler());
             // school route
             config.Routes.MapHttpRoute(
                 name: "MyDefault",

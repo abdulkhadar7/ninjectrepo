@@ -51,6 +51,7 @@ namespace NInject.API.Controllers
             return response;
         }
 
+        [HttpPost]
         public HttpResponseMessage Login(HttpRequestMessage request, LoginModel model)
         {
             HttpResponseMessage response = null;
