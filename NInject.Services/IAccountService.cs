@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NInject.Business.Logins;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace NInject.Services
 {
-    public interface IUserService
+    public interface  IAccountService
     {
-        int Authenticate(string userName, string password);
+        string AddNewUser(AddNewUserModel model);
     }
 }

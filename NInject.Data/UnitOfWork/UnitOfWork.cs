@@ -15,8 +15,8 @@ namespace NInject.Data.UnitOfWork
 
         private NInjectContext _context = null;
         private GenericRepository<Product> _productRepository;
-        private GenericRepository<User> _userRepository;
-        private GenericRepository<Token> _tokenRepository;
+
+        private GenericRepository<AspNetUsers> _aspNetUserRepository;
         #endregion
 
         public UnitOfWork()
@@ -41,25 +41,17 @@ namespace NInject.Data.UnitOfWork
             }
         }
 
-        public GenericRepository<User> UserRepository
+        public GenericRepository<AspNetUsers> AspNetRepository
         {
             get
             {
-                if (_userRepository == null)
-                    _userRepository = new GenericRepository<User>(_context);
-                return _userRepository;
+                if (_aspNetUserRepository == null)
+                    _aspNetUserRepository = new GenericRepository<AspNetUsers>(_context);
+                return _aspNetUserRepository;
             }
         }
          
-        public GenericRepository<Token> TokenRepository
-        {
-            get
-            {
-               if (_tokenRepository == null)
-                    _tokenRepository = new GenericRepository<Token>(_context);
-                return _tokenRepository;
-            }
-        }    
+       
         #endregion
 
         #region Public member methods...

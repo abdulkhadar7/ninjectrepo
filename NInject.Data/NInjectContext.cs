@@ -15,6 +15,7 @@ namespace NInject.Data
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Token> Tokens { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()

@@ -14,8 +14,8 @@ namespace NInject.Services
         public void SetUp(IRegisterComponent registerComponent)
         {
             registerComponent.RegisterType<IProductServices, ProductServices>();
-            registerComponent.RegisterType<IUserService, UserServices>();
-            registerComponent.RegisterType<ITokenServices, TokenServices>();
+            registerComponent.RegisterType<IAccountService, AccountService>();
+            
         }
     }
 }
