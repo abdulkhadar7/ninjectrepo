@@ -31,7 +31,7 @@ namespace NInject.Services
             {
                 AspNetUsers user = new AspNetUsers
                 {
-                    Id = new Guid().ToString(),
+                    Id = Guid.NewGuid().ToString(),
                     AccessFailedCount = 0,
                     Email = model.Email,
                     EmailConfirmed = false,
@@ -53,6 +53,44 @@ namespace NInject.Services
             }
             return userId;
         }
+
+        public LoginSuccessModel Login(LoginModel model)
+        {
+            LoginSuccessModel retModel = new LoginSuccessModel();
+            try
+            {
+                var data = _unitOfWork.AspNetRepository.GetSingle(s => s.UserName == model.username);
+                if(data!=null)
+                {
+                    bool status = VerifyPassword(model.password, data.PasswordHash, data.PasswordSalt);
+                    if(status)
+                    {
+                        retModel.userId = data.Id;
+                        retModel.userName = data.UserName;
+                    }
+                    return retModel;
+                }
+                else
+                {
+                    throw new Exception("Invalid Username or Password!!!");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool verify(string password)
+        {
+            var data = _unitOfWork.AspNetRepository.GetByID("f12cb644-b178-4fe7-aa7f-a79f03daf6ab");
+            string hash = data.PasswordHash;
+            string salt = data.PasswordSalt;
+            bool status = VerifyPassword(password, hash, salt);
+            return status;
+        }
+
         private void GenerateSaltedHash(string password,out string hash,out string salt)
         {
             var saltBytes = new byte[64];

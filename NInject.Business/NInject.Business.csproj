@@ -43,6 +43,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="Logins\AddNewUserModel.cs" />
+    <Compile Include="Logins\LoginModel.cs" />
+    <Compile Include="Logins\LoginSuccessModel.cs" />
     <Compile Include="ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenModel.cs" />

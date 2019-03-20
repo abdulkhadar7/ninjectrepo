@@ -10,5 +10,7 @@ namespace NInject.Services
     public interface  IAccountService
     {
         string AddNewUser(AddNewUserModel model);
+        bool verify(string password);
+        LoginSuccessModel Login(LoginModel model);
     }
 }
