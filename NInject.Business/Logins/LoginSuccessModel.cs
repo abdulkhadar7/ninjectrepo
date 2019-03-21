@@ -10,6 +10,6 @@ namespace NInject.Business.Logins
     {
         public string userId { get; set; }
         public string userName { get; set; }
-
+        public List<string> Rolenames { get; set; }
     }
 }

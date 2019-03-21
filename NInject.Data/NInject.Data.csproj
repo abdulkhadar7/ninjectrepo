@@ -83,6 +83,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetRoles.cs" />
+    <Compile Include="AspNetUserRoles.cs" />
     <Compile Include="AspNetUsers.cs" />
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="GenericRepository\GenericRepository.cs" />

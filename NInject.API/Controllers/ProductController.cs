@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace NInject.API.Controllers
 {
-   
+    [Authorize(Roles="dsdasdasd")]
     [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {

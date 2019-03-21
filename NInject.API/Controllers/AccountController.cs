@@ -60,7 +60,7 @@ namespace NInject.API.Controllers
                 LoginSuccessModel data = _accountService.Login(model); 
                 if(data!=null)
                 {
-                    string token = CreateToken(model.username);
+                    string token = CreateToken(data);
                     response = request.CreateResponse(HttpStatusCode.OK, token);
                 }
                 else
@@ -76,26 +76,35 @@ namespace NInject.API.Controllers
             return response;
         }
 
-        private string CreateToken(string username)
+        private string CreateToken(LoginSuccessModel model)
         {
             DateTime issuedAt = DateTime.UtcNow;
             //set the time when it expires
             DateTime expires = DateTime.UtcNow.AddDays(1);
             var tokenHandler = new JwtSecurityTokenHandler();
-            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
+            ClaimsIdentity claims = new ClaimsIdentity();
+            claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, model.userId));
+            foreach(var item in model.Rolenames)
             {
-                new Claim(ClaimTypes.Name, username)
-            });
+                var roleclaims = new Claim(ClaimTypes.Role, item);
+                claims.AddClaim(roleclaims);
+            }
+            
 
-            const string sec = "401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429090fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1";
+            //ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
+            //{
+            //    new Claim(ClaimTypes.NameIdentifier, model.userId)
+            //});
+
+            const string sec = "P6CZQPptm7y535swXauhWQga9JuC2KZGpRWmFXpcNLJfMwELBezkvtYpHERVfmtFf7RZjVqqJvSbQLsHJ8ddJ3NCAd5ueCsCySYZPvdGDkveV92qn2S2WZCMHFRPQ7tb";
             var now = DateTime.UtcNow;
             var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(sec));
             var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature);
+
+           
             //create the jwt
-            var token =
-                (JwtSecurityToken)
-                    tokenHandler.CreateJwtSecurityToken(issuer: "http://localhost:53060", audience: "http://localhost:53060",
-                        subject: claimsIdentity, notBefore: issuedAt, expires: expires, signingCredentials: signingCredentials);
+            var token = tokenHandler.CreateJwtSecurityToken(issuer: "http://localhost:53060", audience: "http://localhost:53060",
+                        subject: claims, notBefore: issuedAt, expires: expires, signingCredentials: signingCredentials);
             var tokenString = tokenHandler.WriteToken(token);
 
             return tokenString;

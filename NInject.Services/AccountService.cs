@@ -65,8 +65,13 @@ namespace NInject.Services
                     bool status = VerifyPassword(model.password, data.PasswordHash, data.PasswordSalt);
                     if(status)
                     {
+                        var rolemap = _unitOfWork.aspRoleMappingRepository.GetMany(s => s.UserId == data.Id);
+                        retModel.Rolenames = _unitOfWork.aspnetRolesRepository.GetAll().Where(item1 => rolemap.Any(item2 => item2.RoleId == item1.Id)).Select(s => s.Name).ToList();
+                       
                         retModel.userId = data.Id;
                         retModel.userName = data.UserName;
+
+                       
                     }
                     return retModel;
                 }

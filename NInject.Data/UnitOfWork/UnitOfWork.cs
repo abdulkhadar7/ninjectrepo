@@ -17,6 +17,8 @@ namespace NInject.Data.UnitOfWork
         private GenericRepository<Product> _productRepository;
 
         private GenericRepository<AspNetUsers> _aspNetUserRepository;
+        private GenericRepository<AspNetRoles> _aspnetRolesRepository;
+        private GenericRepository<AspNetUserRoles> _aspRoleMappingRepository;
         #endregion
 
         public UnitOfWork()
@@ -50,8 +52,27 @@ namespace NInject.Data.UnitOfWork
                 return _aspNetUserRepository;
             }
         }
-         
-       
+
+        public GenericRepository<AspNetRoles> aspnetRolesRepository
+        {
+            get
+            {
+                if (_aspnetRolesRepository == null)
+                    _aspnetRolesRepository = new GenericRepository<AspNetRoles>(_context);
+                return _aspnetRolesRepository;
+            }
+        }
+        
+        public GenericRepository<AspNetUserRoles> aspRoleMappingRepository
+        {
+            get
+            {
+                if (_aspRoleMappingRepository == null)
+                    _aspRoleMappingRepository = new GenericRepository<AspNetUserRoles>(_context);
+                return _aspRoleMappingRepository;
+            }
+        }
+
         #endregion
 
         #region Public member methods...
