@@ -1,4 +1,5 @@
-﻿using NInject.Services;
+﻿using NInject.API.authorizefilters;
+using NInject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Http;
 
 namespace NInject.API.Controllers
 {
-    [Authorize(Roles="dsdasdasd")]
+    [CustomAuthorize(Roles ="manager")]
     [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {
