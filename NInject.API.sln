@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NInject.API", "NInject.API\NInject.API.csproj", "{E5410E8E-030B-45FE-8439-45F26A71D0F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NInject.Data", "NInject.Data\NInject.Data.csproj", "{0FF18DD6-A89A-4229-A7C7-9A73300120E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NInject.Business", "NInject.Business\NInject.Business.csproj", "{EB9BC3A5-C7E0-4F56-B4B4-1DD5DBA4B1A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NInject.Services", "NInject.Services\NInject.Services.csproj", "{E11DD898-EAC9-4A9D-B907-A95A653F2A1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NInject.Resolver", "NInject.Resolver\NInject.Resolver.csproj", "{2FEA02BF-82D5-4A05-846B-92BC45B45FB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "supportDocs", "supportDocs", "{4F63B316-0923-4158-BC9C-41C372CC6DB1}"
+	ProjectSection(SolutionItems) = preProject
+		identityTableSQL.txt = identityTableSQL.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5410E8E-030B-45FE-8439-45F26A71D0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5410E8E-030B-45FE-8439-45F26A71D0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5410E8E-030B-45FE-8439-45F26A71D0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5410E8E-030B-45FE-8439-45F26A71D0F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FF18DD6-A89A-4229-A7C7-9A73300120E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF18DD6-A89A-4229-A7C7-9A73300120E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF18DD6-A89A-4229-A7C7-9A73300120E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF18DD6-A89A-4229-A7C7-9A73300120E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB9BC3A5-C7E0-4F56-B4B4-1DD5DBA4B1A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB9BC3A5-C7E0-4F56-B4B4-1DD5DBA4B1A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB9BC3A5-C7E0-4F56-B4B4-1DD5DBA4B1A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB9BC3A5-C7E0-4F56-B4B4-1DD5DBA4B1A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E11DD898-EAC9-4A9D-B907-A95A653F2A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E11DD898-EAC9-4A9D-B907-A95A653F2A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E11DD898-EAC9-4A9D-B907-A95A653F2A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E11DD898-EAC9-4A9D-B907-A95A653F2A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FEA02BF-82D5-4A05-846B-92BC45B45FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FEA02BF-82D5-4A05-846B-92BC45B45FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FEA02BF-82D5-4A05-846B-92BC45B45FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FEA02BF-82D5-4A05-846B-92BC45B45FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
