@@ -112,5 +112,30 @@ namespace NInject.API.Controllers
 
             return tokenString;
         }
+
+        [Route("LoginTest")]
+        [HttpPost]
+        public HttpResponseMessage LoginTest(HttpRequestMessage request, LoginModel model)
+        {
+            HttpResponseMessage response = null;
+            try
+            {
+                LoginSuccessModel data = _accountService.Login(model);
+                if (data != null)
+                {                    
+                    response = request.CreateResponse(HttpStatusCode.OK, data);
+                }
+                else
+                {
+                    response = request.CreateResponse(HttpStatusCode.Unauthorized);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                response = request.CreateResponse(HttpStatusCode.OK, ex.Message);
+            }
+            return response;
+        }
     }
 }

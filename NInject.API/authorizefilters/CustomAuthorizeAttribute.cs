@@ -25,10 +25,9 @@ namespace NInject.API.authorizefilters
 
             
            var claimsIdentity = (ClaimsIdentity)actionContext.RequestContext.Principal.Identity;
+           
 
-           var RoleList = claimsIdentity.FindAll(s => s.Type == ClaimTypes.Role).(s=>s.Value).ToList();
-
-            //var RoleList = string.Join(",", claimsIdentity.FindAll(s => s.Type == ClaimTypes.Role).Select(s => s.Value).ToList());
+            var RoleList = string.Join(",", claimsIdentity.FindAll(s => s.Type == ClaimTypes.Role).Select(s => s.Value).ToList());
 
             if (!RoleList.Contains(Roles))
             {
